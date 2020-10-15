@@ -6,6 +6,7 @@ function selectionSort(arr){
                 lowestIndex = j
             }
         }
+        //optimization
         if(i !=lowestIndex){
 
             let temp = arr[lowestIndex]
