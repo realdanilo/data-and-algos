@@ -1,3 +1,4 @@
+const test = require("./test")
 function quickSort(arr){
     if(arr.length <= 1) return arr
     let pivot = arr[arr.length-1]
@@ -19,5 +20,4 @@ function quickSort(arr){
         return [pivot, ...quickSort(right)]
     }
 }
-let test = [...Array(50)].map(i => Math.floor(Math.random()*100)+1)
 console.log(quickSort(test))
