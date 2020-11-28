@@ -1,5 +1,6 @@
 const test = require("./test")
 // let test = [123456,12345,1234,123,12,1,0]
+//only works with integers
 function getDigit(number, value){
     return Math.floor(Math.abs(number)/Math.pow(10,value)) % 10;
 }
