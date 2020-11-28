@@ -99,6 +99,17 @@ class SingleLinkedList{
         this.length++
         return  true
    }
+   remove(position){
+       if(position<0) return undefined
+       if(position == this.length) return this.pop()
+       if(position ==0) return this.shift()
+    // else remove middle 
+        let middlePrev = this.get(position -1)
+        let temp  = middlePrev.next.next 
+        middlePrev.next = temp
+        this.length--
+        return middlePrev.next
+   }
     
 }
 
@@ -110,10 +121,11 @@ myList.push("Good Bye")
 myList.push("!")
 myList.push("<3")
 myList.push(":)")
-
 myList.insert(5,"LAST")
-console.log("------")
-// console.log(myList)
+console.log(myList)
+
+myList.remove(6)
+console.log(myList)
 // console.log(myList.head.next.next.next)
 
 
