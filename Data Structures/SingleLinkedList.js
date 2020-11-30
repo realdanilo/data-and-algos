@@ -138,6 +138,7 @@ class SingleLinkedList{
    }
   myReverse(){
       let head = this.head 
+      this.tail = head
       let prev = null 
       while(head){
           let next = head.next 
@@ -146,7 +147,6 @@ class SingleLinkedList{
           head = next 
       }
       this.head = prev 
-      this.tail = head
       return prev 
   }
     
@@ -162,10 +162,15 @@ myList.push("Good Bye")
 myList.push("!")
 myList.push("<3")
 myList.push(":)")
-myList.print();
-console.log(myList.myReverse())// myList.print();
-myList.print()
+console.log("mylist")
+console.log(myList)
+// myList.print();
+myList.myReverse()// myList.print();
+// myList.print()
 // console.log(myList)
+console.log("reverse")
+console.log(myList)
+
 
 // got it!!!! 
 
