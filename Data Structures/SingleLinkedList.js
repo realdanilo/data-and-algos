@@ -103,16 +103,57 @@ class SingleLinkedList{
        if(position<0) return undefined
        if(position == this.length) return this.pop()
        if(position ==0) return this.shift()
-    // else remove middle 
+        // else remove middle 
         let middlePrev = this.get(position -1)
         let temp  = middlePrev.next.next 
         middlePrev.next = temp
         this.length--
         return middlePrev.next
    }
+   print(){
+       let arr =[]
+       let current = this.head 
+       while(current){
+           arr.push(current.value)
+           current = current.next 
+       }
+       console.log(arr)
+   }
+   reverse(){
+       let fakeHead = this.head 
+       this.head = this.tail 
+       this.tail = fakeHead 
+       let previous = null 
+       let second;
+       let count = 0 
+       while(count < this.length){
+           count++
+           second = fakeHead.next 
+           fakeHead.next = previous
+           previous = fakeHead
+           fakeHead = second 
+           console.log(fakeHead)
+       }
+       return this
+   }
+  myReverse(){
+      let head = this.head 
+      let prev = null 
+      while(head){
+          let next = head.next 
+          head.next = prev 
+          prev = head 
+          head = next 
+      }
+      this.head = prev 
+      this.tail = head
+      return prev 
+  }
     
 }
 
+
+// [prev, head, next]
 
 
 myList =  new SingleLinkedList()
@@ -121,13 +162,12 @@ myList.push("Good Bye")
 myList.push("!")
 myList.push("<3")
 myList.push(":)")
-myList.insert(5,"LAST")
-console.log(myList)
+myList.print();
+console.log(myList.myReverse())// myList.print();
+myList.print()
+// console.log(myList)
 
-myList.remove(6)
-console.log(myList)
-// console.log(myList.head.next.next.next)
-
+// got it!!!! 
 
 
 
