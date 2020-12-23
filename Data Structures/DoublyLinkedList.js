@@ -81,6 +81,7 @@ class DoublyLinkedList{
         let current;
         if(x <= this.length/2){
             //if index is at far left
+            counter = 0;
             current = this.head;
             while(counter != index){
                 current = current.next;
