@@ -51,4 +51,18 @@ class BST{
         if(!found) return false
         return current
     }
+    myFind(value){
+        if(!this.root) return -1;
+        let current = this.root;
+        while(true && current){
+            if(value < current.val){
+                current = current.left
+            }else if(value > current.val){
+                current= current.right
+            }else if(value == current.val){
+                return current
+            }
+        }
+        return false
+    }
 }
