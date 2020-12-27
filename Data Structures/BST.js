@@ -65,4 +65,19 @@ class BST{
         }
         return false
     }
+    //breadth first search
+    //arrays instead of queues
+    BFS(){
+        let data = [];
+        let queue = [];
+        let node = null;
+        queue.push(this.root)
+        while(queue.length){
+            node = queue.shift()
+            data.push(node.value)
+            if(node.left) queue.push(node.left)
+            if(node.right) queue.push(node.right)
+        }
+        return data
+    }
 }
