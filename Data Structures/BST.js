@@ -81,6 +81,7 @@ class BST{
         return data
     }
     DFSPreOrder(){
+        // returns a flat q/array , as if we need to recreate the tree, root is 0 index
         let data =[];
         function traverse(node){
             data.push(node.value)
@@ -91,6 +92,7 @@ class BST{
         return data;
     }
     DFSPostOrder(){
+        // returns the bottom node(s) first, bottom-up flow
         let data = []
         function traverse(node){
             if(node.left) traverse(node.left)
@@ -101,6 +103,7 @@ class BST{
         return data 
     }
     DFSInOrder(){
+        //Returns data in sorting order, smallest to largest
         let data = []
         function traverse(node){
             if(node.left) traverse(node.left)
