@@ -28,5 +28,53 @@ class MaxBinaryHeap{
         return this.bubbleUp()
 
     }
+    extractMax(){
+        let max = this.values[0]
+        let last = this.values.pop()
+        //check edge case
+        if(this.values.length > 0){
+            this.values[0] = last
+            //check the newest element to their children, then swap the biggest
+            this.sinkDown()
+        }
+        return max
+    }
+    sinkDown(){
+        let index = 0
+        const length = this.values.length
+        let element = this.values[0]
+
+        while(true){
+            let leftChildIndex = 2 * index +1
+            let rightChildIndex = 2 * index +2
+            
+            let leftChildElement, rightChildElement
+            let swap = null
+
+            if(leftChildIndex < length){
+                leftChildElement = this.values[leftChildIndex]
+                if(leftChildElement > element){
+                    swap = leftChildIndex
+                }
+            }
+
+            if(rightChildIndex < length){
+                rightChildElement = this.values[rightChildIndex]
+                if(rightChildElement > element && rightChildElement > leftChildElement){
+                    swap = rightChildIndex
+                }
+            }
+
+
+            if(swap === null) break;
+            //swap =left or right index
+            this.values[index] = this.values[swap]
+            this.values[swap] = element
+
+            //update index
+            index = swap
+
+        }
+    }
 
 }
