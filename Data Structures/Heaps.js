@@ -31,7 +31,8 @@ class MaxBinaryHeap{
     extractMax(){
         let max = this.values[0]
         let last = this.values.pop()
-        //check edge case
+        // [12] >> max, and last
+        //do not add last to link again || Edge
         if(this.values.length > 0){
             this.values[0] = last
             //check the newest element to their children, then swap the biggest
@@ -51,13 +52,14 @@ class MaxBinaryHeap{
             let leftChildElement, rightChildElement
             let swap = null
 
+            //make sure childs are in bound/exists
             if(leftChildIndex < length){
                 leftChildElement = this.values[leftChildIndex]
+                //if leftValue > value, swap = leftIndex
                 if(leftChildElement > element){
                     swap = leftChildIndex
                 }
             }
-
             if(rightChildIndex < length){
                 rightChildElement = this.values[rightChildIndex]
                 if(rightChildElement > element && rightChildElement > leftChildElement){
