@@ -13,5 +13,16 @@ class HashTable{
         }
         return total
     }
-    
+    set(key, value){
+        let index = this._hash(key)
+        let n = [key, value]
+        if(!this.keyMap[index]){
+            this.keyMap[index] = [n]
+        }else{
+            this.keyMap[index].push(n)
+        }
+
+
+        return index
+    }
 }
