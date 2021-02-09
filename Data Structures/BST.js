@@ -72,7 +72,7 @@ class BST{
         let left = this.reverse(node.left)
         let right = this.reverse(node.right)
 
-        //swap childs
+        //swap children
         node.left = right
         node.right = left 
         //return head
