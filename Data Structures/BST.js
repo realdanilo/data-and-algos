@@ -65,6 +65,19 @@ class BST{
         }
         return false
     }
+    reverse(node){
+        //get head
+        if(!node) return 
+        //get children
+        let left = this.reverse(node.left)
+        let right = this.reverse(node.right)
+
+        //swap childs
+        node.left = right
+        node.right = left 
+        //return head
+        return node
+    }
     //breadth first search
     //arrays instead of queues
     BFS(){
