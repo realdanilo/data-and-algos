@@ -21,8 +21,17 @@ class HashTable{
         }else{
             this.keyMap[index].push(n)
         }
-
-
         return index
+    }
+    get(key){
+        let index = this._hash(key)
+       
+        if(this.keyMap[index]){
+            let mainArray = this.keyMap[index]
+            for(let i = 0; i < mainArray.length; i++){
+                if(mainArray[i][0]===key) return mainArray[i][1]
+            }
+        }
+        return undefined
     }
 }
