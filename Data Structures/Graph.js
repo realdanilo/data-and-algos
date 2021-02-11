@@ -29,4 +29,19 @@ class Graph{
         delete this.adjacencyList[vertex]
         return this.adjacencyList
     }
+    DFS_recursive(vertex){
+        let result =[]
+        let visited = {}
+        let adjacencyList = this.adjacencyList
+
+        function graph(point){
+            visited[point] = true 
+            result.push(point)
+            for(let p of adjacencyList[point]){
+                 if(!visited[p])  graph(p)
+            }            
+        }
+        graph(vertex)
+        return result 
+    }
 }
