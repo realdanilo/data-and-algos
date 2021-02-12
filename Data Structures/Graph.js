@@ -107,4 +107,28 @@ class Graph{
         }
         return result
     }
+    BFS_recursive(vertex){
+        let result = []
+        let visited = {}
+        let q =[vertex]
+        visited[vertex] = true
+        let current 
+        let adjacencyList = this.adjacencyList
+
+        function graph(){
+            if(q.length){
+                current = q.shift()
+                result.push(current)
+                adjacencyList[current].forEach(n=>{
+                    if(!visited[n]){
+                        visited=true 
+                        q.push(n)
+                    }
+                })
+                graph()
+            }
+        }
+        graph()
+        return result
+    }
 }
