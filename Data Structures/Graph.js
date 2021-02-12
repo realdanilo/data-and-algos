@@ -44,4 +44,67 @@ class Graph{
         graph(vertex)
         return result 
     }
+    DFS_iterative(vertex){
+        let stack = []
+        let result = []
+        let visited = {}
+        stack.push(vertex)
+        while(stack.length >= 1){
+            let point = stack.pop()
+            if(!visited[point]){
+                visited[point] = true
+                result.push(point)
+                // for(let n of adjacencyList[point]){
+                //     stack.push(n)
+                // } same as below
+                stack.push(...this.adjacencyList[point])
+            }
+        }
+        return result
+    }
+    DFS_iterative_optimized(vertex){
+        let stack = []
+        let result = []
+        let visited = {}
+        let point
+        //optimization 1
+        stack.push(vertex)
+        visited[vertex] = true
+
+        while(stack.length){
+            point = stack.pop()
+            result.push(point)
+            this.adjacencyList[point].forEach(n => {
+                //optimization 2
+                if(!visited[n]){
+                    visited[n] = true
+                    stack.push(n)
+                }
+            })
+        }
+        return result
+    }
+    BFS(vertex){
+        let q = []
+        let point;
+        let result = []
+        let visited = {}
+        q.push(vertex)
+        //optimization 1
+        visited[vertex] = true
+        
+        while(q.length){
+            point = q.shift()
+            result.push(point)
+            this.adjacencyList[point].forEach(n => {
+               //optimization 2
+                if(!visited[n]){
+                    visited[n] = true
+                    q.push(n)
+                }
+            })
+            
+        }
+        return result
+    }
 }
