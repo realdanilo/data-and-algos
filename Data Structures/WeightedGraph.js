@@ -54,6 +54,7 @@ class WeightedGraph{
                path.push(start)
                return path.reverse()
            }
+           console.log("****current priority", currentSmallest)
            this.adjacencyList[currentSmallest].forEach( neighbor => {
                 //adding paths
                 let potential = shortestDistances[currentSmallest] + neighbor.weight
@@ -64,8 +65,13 @@ class WeightedGraph{
                 if(potential < shortestDistances[neighbor.node]){
                     shortestDistances[neighbor.node] = potential 
                     shortestPrevious[neighbor.node] = currentSmallest
-                    //enque 
+                    //enque + PRIORITIZE
                     nodes.enqueue(neighbor.node , potential)
+                    //advice if theres a change in priority
+                    if(nodes.values[0].val == neighbor.node){
+                        
+                        console.log("new priority", nodes.values[0])
+                    }
 
                 }
            })
