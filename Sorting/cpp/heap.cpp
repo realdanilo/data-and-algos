@@ -22,12 +22,12 @@ void heapSort(vector<int>& v){
     }
     for(int i=n-1; i>=0; i--){
         swap(v[i], v[0]);
-        heapify(v, n, 0);
+        heapify(v, i, 0);
     }
 }
 
 int main(){
-    vector<int> v = {1, 12, 7, 9, 3, 0};
+    vector<int> v = {1, -12, 7, 3, 11,-8,0,-33,-100};
     heapSort(v);
     for(int& i : v) cout<<i<<" ";
 }

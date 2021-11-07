@@ -7,7 +7,7 @@ using namespace std;
 int partition(vector<int>& v, const int& start, const int& end){
     int pIndex = start;
     for(int i=start; i<end; i++){
-        if(v[start] < v[end]){
+        if(v[i] < v[end]){
             swap(v[pIndex], v[i]);
             pIndex++;
         }
@@ -28,7 +28,7 @@ void quickSort(vector<int>& v, int start, int end){
 }
 
 int main(){
-    vector<int> v = {1, 12, 7, 9, 3, 0};
+    vector<int> v = {1, -12, 7, 3, 11,-8,0,-33,-100};
     quickSort(v, 0, v.size()-1);
     for(int& i : v) cout<<i<<" ";
 }
